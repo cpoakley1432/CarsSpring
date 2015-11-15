@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Tracker</title>
+</head>
+<body>
+<a href="/logout">Logout</a>
+<br><br>
+
+<form action="add-car" method="post">
+    <input type="text" placeholder="Car Make" name="carmake"/>
+    <input type="text" placeholder="Car Model" name="carmodel"/>
+    <select name="carmileage">
+        <option value="0 - 50,000">0-50,000</option>
+        <option value="50,001 - 100,000">50,001-100,000</option>
+        <option value="100,001 - 150,000">100,001-150,000</option>
+        <option value="150,001 - 200,000">150,001-200,000</option>
+        <option value="200,001+">200,001+</option>
+    </select>
+    <button type="radio" value="2WD" name="drivetype">
+        2WD
+    </button>
+    <button type="radion" value="4WD" name="drivetype">
+        4WD
+    </button>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
