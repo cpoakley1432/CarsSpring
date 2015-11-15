@@ -28,6 +28,9 @@ public class CarsController {
         if (username == null){
             return "login";
         }
+        else{
+            model.addAttribute("cars", cars.findAll());
+        }
         return "home";
     }
 
@@ -54,15 +57,15 @@ public class CarsController {
     }
 
     @RequestMapping("/add-car")
-    public String addCar(String carmake, String carmodel, String carmileage,String drivetype, HttpSession session){
+    public String addCar(String make, String model, String mileage,String drivetype, HttpSession session){
         String username = (String) session.getAttribute("username");
         if (username == null){
         }
         User user = users.findOneByName(username);
         Car car = new Car();
-        car.make = carmake;
-        car.model = carmodel;
-        car.mileage = carmileage;
+        car.make = make;
+        car.model = model;
+        car.mileage = mileage;
         car.drivetype = drivetype;
         car.user = user;
         cars.save(car);
@@ -70,13 +73,32 @@ public class CarsController {
         return "redirect:/";
     }
 
-    @RequestMapping("/update-car")
-    public String updateCar(){
+    @RequestMapping("/update")
+    public String update (int id, HttpSession session, Model model) throws Exception {
+        if (session.getAttribute("username") == null){
+            throw new Exception("Not logged in");
+        }
+        model.addAttribute("id", id);
+        return "update";
+    }
 
+    @RequestMapping("/update-car")
+    public String updateCar(int id, String make, String model, String mileage, String drivetype, HttpSession session) throws Exception {
+        if (session.getAttribute("username") == null){
+            throw new Exception("Not logged in");
+        }
+        Car car = cars.findOne(id);
+        car.make = make;
+        car.model = model;
+        car.mileage = mileage;
+        car.drivetype = drivetype;
+        cars.save(car);
+        return "redirect:/";
     }
 
     @RequestMapping("/delete-car")
-    public String deleteCar(){
-
+    public String deleteCar(Integer id){
+        cars.delete(id);
+        return "redirect:/";
     }
 }

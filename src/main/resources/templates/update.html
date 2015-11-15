@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Car Tracker</title>
+    <title></title>
 </head>
 <body>
-<a href="/logout">Logout</a>
-<br><br>
-
-<form action="add-car" method="post">
+<form action="update-car" method="post">
     <input type="text" placeholder="Car Make" name="make"/>
     <input type="text" placeholder="Car Model" name="model"/>
     <select name="mileage">
@@ -22,17 +19,8 @@
         <option value="2WD">2WD</option>
         <option value="4WD">4WD</option>
     </select>
-    <button type="submit">Submit</button>
-</form>
-
-{{#cars}}
-{{id}}. {{make}} - {{model}} - {{mileage}} - {{drivetype}}
-<a href="update?id={{id}}" >Update</a>
-<form action="delete-car" method="post" style="display:inline">
     <input type="hidden" value={{id}} name="id"/>
-    <button type="submit">Delete</button>
-</form><br>
-
-{{/cars}}
+    <button type="submit">Update</button>
+</form>
 </body>
 </html>
