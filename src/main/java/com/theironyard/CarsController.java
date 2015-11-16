@@ -22,11 +22,14 @@ public class CarsController {
     CarsRepository cars;
 
     @RequestMapping("/")
-    public String home (Model model, HttpServletRequest request){
+    public String home (Model model, HttpServletRequest request, String drivetype){
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
         if (username == null){
             return "login";
+        }
+        if (drivetype != null){
+            model.addAttribute("cars" , cars.findByDrivetype(drivetype));
         }
         else{
             model.addAttribute("cars", cars.findAll());
