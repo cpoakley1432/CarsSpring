@@ -1,9 +1,6 @@
 package com.theironyard.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by cameronoakley on 11/15/15.
@@ -13,8 +10,12 @@ import javax.persistence.Table;
 public class User {
     @Id
     @GeneratedValue
+    @Column(nullable = false)
     Integer id;
 
+    @Column(nullable = false)
     public String name;
+
+    @Column(nullable = false)
     public String password;
 }
