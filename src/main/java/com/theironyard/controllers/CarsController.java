@@ -43,15 +43,16 @@ public class CarsController {
     @RequestMapping("/login")
     public String login (String username, String password, HttpSession session) throws Exception {
         session.setAttribute("username" , username);
-        User user = users.findOneByName(username);
+        User user = users.findOneByUsername(username);
         if (user == null){
             user = new User();
-            user.name = username;
+            user.username = username;
             user.password = PasswordHash.createHash(password);
         }
         else if (!PasswordHash.validatePassword(password,user.password)){
             throw new Exception("Invalid password");
         }
+        session.setAttribute("username", username);
         return "redirect:/";
     }
 
@@ -67,7 +68,7 @@ public class CarsController {
         String username = (String) session.getAttribute("username");
         if (username == null){
         }
-        User user = users.findOneByName(username);
+        User user = users.findOneByUsername(username);
         Car car = new Car();
         car.make = make;
         car.model = model;

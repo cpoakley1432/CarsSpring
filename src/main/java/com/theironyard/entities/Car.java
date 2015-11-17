@@ -27,5 +27,4 @@ public class Car {
     @ManyToOne
     public User user;
 
-
 }
