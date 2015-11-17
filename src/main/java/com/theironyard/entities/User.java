@@ -1,4 +1,4 @@
-package com.theironyard;
+package com.theironyard.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +15,6 @@ public class User {
     @GeneratedValue
     Integer id;
 
-    String name;
-    String password;
+    public String name;
+    public String password;
 }

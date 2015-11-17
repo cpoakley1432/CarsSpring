@@ -1,4 +1,4 @@
-package com.theironyard;
+package com.theironyard.util;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

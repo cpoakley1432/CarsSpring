@@ -1,5 +1,10 @@
-package com.theironyard;
+package com.theironyard.controllers;
 
+import com.theironyard.*;
+import com.theironyard.entities.Car;
+import com.theironyard.entities.User;
+import com.theironyard.services.CarsRepository;
+import com.theironyard.services.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 /**
  * Created by cameronoakley on 11/15/15.

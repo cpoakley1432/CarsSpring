@@ -1,4 +1,4 @@
-package com.theironyard;
+package com.theironyard.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +14,12 @@ public class Car {
     @GeneratedValue
     Integer id;
 
-    String make;
-    String model;
-    String mileage;
-    String drivetype;
+    public String make;
+    public String model;
+    public String mileage;
+    public String drivetype;
     @ManyToOne
-    User user;
+    public User user;
 
 
 }
